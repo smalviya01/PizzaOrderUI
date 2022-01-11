@@ -1,0 +1,22 @@
+<app-navigation></app-navigation> 
+<div>
+  <div class="card background">
+    <img src="../assets/images/pizz logo.png" alt="Trulli" width="100" height="100" class="margin-left" style=" float: left;">
+    <div class = "header">
+      <div class="card-header">
+        Promotional Offers
+      </div>
+      <div class="card-block">
+        <ul class="list">
+          <li class="item"><strong>Offer 1</strong> 1 Small Pizza with 2 toppings = $5</li>
+          <li class="item"><strong>Offer 2</strong> 2 Medium Pizza with 4 toppings each = $9</li>
+          <li class="item"><strong>Offer 3</strong> 1 Large with 4 toppings ( Peperoni and Barbecue chicken are counted as
+            2
+            toppings)- 50% discount</li>
+        </ul>
+      </div>
+      <button type="button" (click)="onOrderNowClick()" style="margin-left: 40rem;">Create Your Pizza</button>
+    </div>
+  </div> 
+</div>
+<router-outlet></router-outlet>

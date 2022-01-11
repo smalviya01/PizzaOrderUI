@@ -1,0 +1,41 @@
+<form [formGroup]="pizzaForm" (ngSubmit)="onPayment()">
+    <table style="width: 100%;background-color: antiquewhite;">
+       <tr>
+          <td><h5 class="titleClass">Pizza Size:</h5></td>
+          <td *ngFor="let size of pizzaSizeArray">  
+               <input type="radio"  value="{{size.itemName}}" formControlName="selectedPizzaSize"> 
+               <span>{{size.itemName}}</span><span> ( {{size.itemRate | currency}} ) </span>		 
+          </td> 
+       </tr>
+         <tr>
+            <td><h5 class="titleClass">Pizza Crust:</h5></td>
+            <td *ngFor="let crust of pizzaCrustArray">  
+                <input type="radio"  value="{{crust}}" formControlName="selectedCrust"> 
+                <span>{{crust}}</span>	 
+           </td> 
+       </tr> 
+       <tr>
+        <td><h5 class="titleClass">Toppings($0.75 each):</h5></td>
+         <td *ngFor="let topping of toppingsArray" style="width: 170px;">
+            <input type="checkbox" (change)="onToppingsCheck($event)"> {{topping.label}}
+         </td>
+       </tr>
+    </table>  
+    <div class="row">
+        <div class="column" style="background-color:lavenderblush;">
+            <h5 class="titleClass">Drinks:</h5><br><br>
+            <div *ngFor="let drink of drinksArray">
+                <input type="checkbox" (change)="onDrinksCheck($event)"> {{drink.label}}
+                <div style="display: inline-flex;margin-left: 10rem;">
+                    <span> Qty </span><input type="text" id="{{drink.label}}" name="quantity">
+                </div>
+            </div>
+        </div>
+        <div class="column" style="background-color:lavenderblush;">
+            <h5 class="titleClass">Others:</h5><br><br>
+            <div *ngFor="let item of nonPizzaItemsArray">
+                <input type="checkbox" (change)="onItemsCheck($event)"> {{item.label}}
+            </div>
+        </div>
+      </div>
+  </form> 
